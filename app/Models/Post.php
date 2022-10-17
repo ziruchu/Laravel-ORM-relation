@@ -41,4 +41,14 @@ class Post extends Model
         return $this->morphOne(Image::class, 'imageable');
     }
 
+    /**
+     * 多样化多对多关系
+     *
+     * 一篇文章可以有多个标签
+     */
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
+
 }

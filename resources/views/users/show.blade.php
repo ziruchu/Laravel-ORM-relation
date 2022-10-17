@@ -64,9 +64,17 @@
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $post->title }}</h5>
                                             <h6 class="card-subtitle text-munted">
-                                                所欲分类：{{ $post->category->name }} |
-                                                评论总数：{{ $post->comments_count }}
+                                                <strong>所欲分类：</strong>{{ $post->category->name }}<br>
+                                                <strong>评论总数：</strong>{{ $post->comments_count }}
                                             </h6>
+                                            <p class="card-text">
+                                                <strong>文章标签：</strong>
+                                                @foreach($post->tags as $tag)
+                                                    <span>
+                                                        {{ $tag->name }}
+                                                    </span>
+                                                @endforeach
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -88,10 +96,17 @@
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $video->title }}</h5>
                                             <h6 class="card-subtitle text-munted">
-                                                分类：{{ $video->category->name }} |
-                                                评论总数：{{ $video->comments_count }}
-
+                                               <strong> 分类：</strong>{{ $video->category->name }}<br>
+                                                <strong>评论总数：</strong>{{ $video->comments_count }}
                                             </h6>
+                                            <p class="card-text">
+                                                <strong>视频标签：</strong>
+                                                @foreach($video->tags as $tag)
+                                                    <span>
+                                                        {{ $tag->name }}
+                                                    </span>
+                                                @endforeach
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

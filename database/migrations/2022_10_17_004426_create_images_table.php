@@ -19,6 +19,8 @@ return new class extends Migration
             $table->morphs('imageable');
             $table->timestamps();
         });
+
+        \Illuminate\Support\Facades\DB::statement('ALTER TABLE `comments` COMMENT "封面图片"');
     }
 
     /**

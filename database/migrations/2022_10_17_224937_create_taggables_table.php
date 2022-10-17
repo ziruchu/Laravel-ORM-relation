@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
+        Schema::create('taggables', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->comment('标签名称');
+            $table->bigInteger('tag_id');
+            $table->morphs('taggable');
             $table->timestamps();
         });
 
-        \Illuminate\Support\Facades\DB::statement('ALTER TABLE `tags` COMMENT "标签"');
+        \Illuminate\Support\Facades\DB::statement('ALTER TABLE `taggables` COMMENT "标签模型中间表"');
     }
 
     /**
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tags');
+        Schema::dropIfExists('taggables');
     }
 };

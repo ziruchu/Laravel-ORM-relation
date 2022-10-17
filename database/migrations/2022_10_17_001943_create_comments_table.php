@@ -20,6 +20,8 @@ return new class extends Migration
             $table->morphs('commentable');
             $table->timestamps();
         });
+
+        \Illuminate\Support\Facades\DB::statement('ALTER TABLE `comments` COMMENT "评论"');
     }
 
     /**
