@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('index.index');
 Route::get('users/{user}', [\App\Http\Controllers\UserController::class, 'show'])->name('users.show');
+Route::get('levels/{level}', [\App\Http\Controllers\LevelController::class, 'show'])->name('levels.show');
 
-Route::get('profiles/{id}', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profiles.show');

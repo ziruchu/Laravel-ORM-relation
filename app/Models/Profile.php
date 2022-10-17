@@ -17,6 +17,12 @@ class Profile extends Model
         return $this->belongsTo(User::class);
     }
 
+    // 一个用户资料对应一个国家
+    public function location()
+    {
+        return $this->hasOne(Location::class);
+    }
+
     public function gender(): Attribute
     {
         return Attribute::make(

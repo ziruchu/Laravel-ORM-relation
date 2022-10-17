@@ -8,6 +8,7 @@ use App\Models\Comment;
 use App\Models\Group;
 use App\Models\Image;
 use App\Models\Level;
+use App\Models\Location;
 use App\Models\Post;
 use App\Models\Profile;
 use App\Models\Tag;
@@ -56,6 +57,9 @@ class DatabaseSeeder extends Seeder
         User::factory(10)->create()->each(function ($user) {
             // 创建用户对应的资料
             $profile = $user->profile()->save(Profile::factory()->make());
+
+            // 一个用户资料对应一个国家
+            $profile->location()->save(Location::factory()->make());
 
             // 用户与所属用户组中间表
             $user->groups()->attach($this->getRandNumber(rand(1, 4)));

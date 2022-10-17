@@ -14,8 +14,4 @@ class IndexController extends Controller
         return view('index.index', compact('users'));
     }
 
-    public function show($id)
-    {
-        return view('index.index', compact('users'));
-    }
 }

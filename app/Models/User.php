@@ -60,6 +60,12 @@ class User extends Authenticatable
         return $this->hasMany(Video::class);
     }
 
+    // 一个用户有多个评论
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     /**
      * 用户与组的关系
      *
@@ -84,6 +90,16 @@ class User extends Authenticatable
     public function image()
     {
         return $this->morphOne(Image::class, 'imageable');
+    }
+
+    /**
+     * 远程一对一关系
+     *
+     * 一个用户对应一个国家
+     */
+    public function location()
+    {
+        return $this->hasOneThrough(Location::class, Profile::class);
     }
 
 }

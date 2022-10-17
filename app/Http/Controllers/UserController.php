@@ -9,8 +9,8 @@ class UserController extends Controller
 {
     public function show(User $user)
     {
-        $posts  = $user->posts()->with('category')->withCount('comments')->get();
-        $videos = $user->videos()->with('category')->withCount('comments')->get();
+        $posts  = $user->posts()->with('category', 'image', 'tags')->withCount('comments')->get();
+        $videos = $user->videos()->with('category', 'image', 'tags')->withCount('comments')->get();
 
         return view('users.show', compact('user', 'posts', 'videos'));
     }
